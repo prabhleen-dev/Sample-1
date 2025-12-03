@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jaan | Premium Portfolio</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --carrot:#F07F34;
+  --purple-900:#0f0014;
+  --purple-800:#1b0026;
+  --purple-700:#2b0038;
+  --white-soft:#F5F5F7;
+  --muted:#cfc9d6;
+  --glass:rgba(255,255,255,0.06);
+  --glass-border:rgba(255,255,255,0.10);
+  --neon:rgba(240,127,52,0.9);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;scroll-behavior:smooth;}
+body{
+  font-family:"Inter",sans-serif;
+  background: radial-gradient(circle at 15% 20%, rgba(240,127,52,0.10), transparent 18%),
+              radial-gradient(circle at 80% 80%, rgba(88,0,140,0.30), transparent 25%),
+              linear-gradient(180deg,var(--purple-900),var(--purple-800) 40%, var(--purple-700));
+  color:var(--white-soft);
+  cursor:none;
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;top:16px;left:0;right:0;z-index:1000;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 6%;border-radius:14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border:1px solid var(--glass-border);
+  backdrop-filter: blur(10px) saturate(120%);
+  width:88%;
+}
+.brand{font-family:"Playfair Display",serif;font-size:22px;color:var(--carrot);letter-spacing:0.6px}
+.nav-links{display:flex;gap:20px}
+.nav-links a{padding:6px 10px;border-radius:8px;font-weight:600;color:var(--muted);transition:.25s}
+.nav-links a:hover{color:var(--white-soft);background:rgba(255,255,255,0.02);box-shadow:0 6px 18px rgba(240,127,52,0.06);}
+
+/* HERO */
+header.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 8% 80px;overflow:hidden}
+.hero-blob{position:absolute;right:-10%;top:-18%;width:70vmax;height:70vmax;border-radius:50%;background: radial-gradient(circle at 30% 30%, rgba(88,0,140,0.55), rgba(240,127,52,0.16) 35%, rgba(18,0,30,0.0) 60%);filter:blur(80px);z-index:0}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;width:100%}
+.hero-copy h1{font-family:"Playfair Display",serif;font-size:64px;margin-bottom:12px;line-height:1.02;letter-spacing:-1px;text-shadow:0 6px 30px rgba(0,0,0,0.6)}
+.hero-copy p{color:var(--muted);max-width:640px;font-size:18px;margin-bottom:22px}
+.cta-row{display:flex;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:12px;border:none;font-weight:700;background:linear-gradient(180deg,var(--carrot), #e36f23);color:white;box-shadow:0 10px 30px rgba(240,127,52,0.20);cursor:pointer;transition:transform .24s ease,box-shadow .24s ease;}
+.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}
+.btn:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(240,127,52,0.28)}
+
+.hero-card{width:100%;max-width:420px;border-radius:18px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border:1px solid var(--glass-border);backdrop-filter: blur(10px);transform-style:preserve-3d;transition:transform 0.18s ease, box-shadow 0.18s ease;box-shadow:0 10px 30px rgba(0,0,0,0.45);}
+.avatar{width:72px;height:72px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))}
+.card-title{font-weight:700;font-size:18px}
+.card-sub{font-size:13px;color:var(--muted)}
+.neon-border{position:relative;border-radius:14px;padding:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);overflow:visible}
+.neon-border::after{content:"";position:absolute;inset:-2px;border-radius:16px;background:linear-gradient(90deg, rgba(240,127,52,0.14), rgba(160,80,210,0.12));filter:blur(12px);opacity:0.9;z-index:-1;transition:opacity .3s}
+
+/* SECTIONS */
+section{padding:80px 8%;position:relative;z-index:5}
+.section-title{font-family:"Playfair Display",serif;color:var(--carrot);font-size:32px;margin-bottom:20px}
+.glass{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border);border-radius:16px;padding:26px;backdrop-filter: blur(10px);box-shadow: 0 10px 30px rgba(0,0,0,0.45);}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:20px}
+.skill{padding:14px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+.skill .bar{height:9px;background:rgba(255,255,255,0.08);border-radius:6px;overflow:hidden;margin-top:8px}
+.skill .bar > i{display:block;height:9px;width:0;background:linear-gradient(90deg,var(--carrot), #ff9b5a);border-radius:6px;transition:width 1.8s cubic-bezier(.2,.9,.2,1)}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
+.project{border-radius:12px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter:blur(8px);padding:14px;}
+.project img{border-radius:12px;transition:transform .25s;}
+.project:hover img{transform:scale(1.05);}
+.project-title{margin-top:12px;font-weight:600}
+
+/* CONTACT FORM */
+form{max-width:640px;margin:0 auto;display:grid;gap:12px}
+input,textarea{padding:12px;border-radius:10px;border:none;background:rgba(255,255,255,0.03);color:var(--white-soft);outline:none}
+.submit{padding:12px;border-radius:10px;background:linear-gradient(180deg,var(--carrot),#e36f23);border:none;color:white;font-weight:800;cursor:pointer}
+
+/* FOOTER */
+footer{padding:28px 8%;text-align:center;color:var(--muted);font-size:14px}
+
+/* PARTICLES + CURSOR TRAIL CANVAS */
+canvas#particles, canvas#cursorTrail{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+
+/* Custom cursor */
+.cursor-dot, .cursor-ring{
+  position:fixed;pointer-events:none;z-index:2000;transform:translate(-50%,-50%);
+}
+.cursor-dot{width:10px;height:10px;border-radius:50%;background:var(--carrot);box-shadow:0 4px 18px rgba(240,127,52,0.5)}
+.cursor-ring{width:36px;height:36px;border-radius:50%;border:2px solid rgba(240,127,52,0.18);box-shadow:0 8px 40px rgba(160,80,210,0.06)}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+<canvas id="cursorTrail"></canvas>
+<div id="cursorRing" class="cursor-ring"></div>
+<div id="cursorDot" class="cursor-dot"></div>
+
+<nav>
+  <div class="brand">JAAN</div>
+  <div class="nav-links">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header id="hero" class="hero">
+  <div class="hero-blob" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1>I'm Jaan —<br><span style="color:#fff">Web Developer & Designer</span></h1>
+      <p>I design premium, glassy interfaces with buttery-smooth interactions.</p>
+      <div class="cta-row">
+        <button class="btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">See Projects</button>
+        <button class="btn secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+      </div>
+    </div>
+    <div class="hero-card neon-border">
+      <div class="top">
+        <div class="avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=ab0b2b0a2e2b5b0f8a2c1a3a3c6b7c2b" alt="avatar"></div>
+        <div>
+          <div class="card-title">Jaan</div>
+          <div class="card-sub">Front-end & UI Designer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="glass">
+  <div>
+    <div class="section-title">About</div>
+    <p style="color:var(--muted)">I design and build high-quality interfaces with a focus on subtle motion and strong visual hierarchy.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-title">Skills</div>
+  <div class="skills-grid">
+    <div class="skill">
+      HTML & CSS
+      <div class="bar"><i style="width:100%"></i></div>
+    </div>
+    <div class="skill">
+      JavaScript
+      <div class="bar"><i style="width:100%"></i></div>
+    </div>
+    <div class="skill">
+      React
+      <div class="bar"><i style="width:100%"></i></div>
+    </div>
+    <div class="skill">
+      UI/UX Design
+      <div class="bar"><i style="width:100%"></i></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-title">Projects</div>
+  <div class="projects-grid">
+    <div class="project"><img src="https://via.placeholder.com/400x250" alt="Project"><div class="project-title">Project One</div></div>
+    <div class="project"><img src="https://via.placeholder.com/400x250" alt="Project"><div class="project-title">Project Two</div></div>
+    <div class="project"><img src="https://via.placeholder.com/400x250" alt="Project"><div class="project-title">Project Three</div></div>
+  </div>
+</section>
+
+<section id="contact" class="glass">
+  <div class="section-title">Contact</div>
+  <form>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button type="submit" class="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  © 2025 Jaan
+</footer>
+
+<script>
+/* ===== CUSTOM CURSOR ===== */
+const cursorDot = document.getElementById('cursorDot');
+const cursorRing = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+const speed = 0.15;
+window.addEventListener('mousemove', e => {mouseX = e.clientX; mouseY = e.clientY; cursorDot.style.left = mouseX+'px'; cursorDot.style.top = mouseY+'px';});
+function animate() {ringX += (mouseX - ringX) * speed; ringY += (mouseY - ringY) * speed; cursorRing.style.left = ringX+'px'; cursorRing.style.top = ringY+'px'; requestAnimationFrame(animate);}
+animate();
+
+/* ===== PARTICLE BACKGROUND ===== */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const particles = [];
+for(let i=0;i<80;i++){
+  particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+1, dx:(Math.random()-0.5)*0.5, dy:(Math.random()-0.5)*0.5});
+}
+function drawParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.x+=p.dx; p.y+=p.dy;
+    if(p.x<0||p.x>canvas.width)p.dx*=-1;
+    if(p.y<0||p.y>canvas.height)p.dy*=-1;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle="rgba(240,127,52,0.35)";
+    ctx.fill();
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
+</script>
+</body>
+</html>
