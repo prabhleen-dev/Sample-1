@@ -100,6 +100,78 @@ canvas#particles, canvas#cursorTrail{position:fixed;left:0;top:0;width:100%;heig
 }
 .cursor-dot{width:10px;height:10px;border-radius:50%;background:var(--carrot);box-shadow:0 4px 18px rgba(240,127,52,0.5)}
 .cursor-ring{width:36px;height:36px;border-radius:50%;border:2px solid rgba(240,127,52,0.18);box-shadow:0 8px 40px rgba(160,80,210,0.06)}
+
+/* ============= RESPONSIVE FIXES FOR MOBILE ============= */
+@media (max-width: 768px) {
+
+  /* NAV */
+  nav {
+    padding: 10px 20px;
+    width: 92%;
+  }
+  .nav-links {
+    gap: 10px;
+  }
+  .nav-links a {
+    font-size: 14px;
+    padding: 4px 6px;
+  }
+
+  /* HERO */
+  header.hero {
+    padding: 120px 5% 60px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-copy h1 {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+
+  .hero-copy p {
+    font-size: 16px;
+    margin: 0 auto 20px;
+  }
+
+  .cta-row {
+    justify-content: center;
+  }
+
+  .hero-card {
+    margin: 0 auto;
+  }
+
+  /* Glass sections padding */
+  section {
+    padding: 60px 6%;
+  }
+
+  /* Skills grid */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact inputs */
+  input, textarea {
+    font-size: 15px;
+  }
+
+  /* Disable custom cursor on mobile */
+  #cursorDot, #cursorRing, #cursorTrail {
+    display: none !important;
+  }
+  body {
+    cursor: auto !important;
+  }
+}
+
+
+
+
 </style>
 </head>
 <body>
